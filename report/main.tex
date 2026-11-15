@@ -600,6 +600,8 @@ This college project implemented and validated an end-to-end binary person segme
 
 \begin{thebibliography}{99}
 \addcontentsline{toc}{chapter}{References}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
 \bibitem{ronneberger2015unet} O.~Ronneberger, P.~Fischer, and T.~Brox, ``U-Net: Convolutional Networks for Biomedical Image Segmentation,'' in \emph{MICCAI}, vol. 9351, pp. 234--241, 2015.
 \bibitem{long2015fcn} J.~Long, E.~Shelhamer, and T.~Darrell, ``Fully Convolutional Networks for Semantic Segmentation,'' in \emph{CVPR}, pp. 3431--3440, 2015.
 \bibitem{chen2017deeplab} L.-C. Chen et~al., ``DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs,'' \emph{IEEE TPAMI}, vol.~40, no.~4, pp. 834--848, 2017.
@@ -617,7 +619,8 @@ This college project implemented and validated an end-to-end binary person segme
 \bibitem{sudre2017generalised} C.~H. Sudre et~al., ``Generalised Dice Overlap as a Deep Learning Loss Function for Highly Unbalanced Segmentations,'' in \emph{DLMIA}, pp. 240--248, 2017.
 \end{thebibliography}
 
-\chapter*{Appendix: Detailed Per-Image Test Evaluation}
+\clearpage
+\chapter*{Appendix: Detailed Per-Image Test Evaluation \& Project Artifacts}
 \addcontentsline{toc}{chapter}{Appendix}
 \label{chap:appendix}
 
@@ -626,6 +629,7 @@ Table~\ref{tab:appendix_per_image} details the complete, image-by-image quantita
 \begin{table}[htbp]
 \centering
 \scriptsize
+\renewcommand{\arraystretch}{0.86}
 \caption{Detailed Per-Image Test Evaluation Results across the 27 Test Images}
 \label{tab:appendix_per_image}
 \begin{tabular}{lccccccrr}
@@ -665,5 +669,28 @@ FudanPed00042 & 0.3373 & 0.5044 & 0.3438 & 0.9467 & 5,989 & 11,431 & 337 & 47,77
 \bottomrule
 \end{tabular}
 \end{table}
+
+\section*{Code Availability \& Project Artifacts}
+\addcontentsline{toc}{section}{Code Availability \& Project Artifacts}
+
+\subsection*{Public Implementation Code Repository}
+The complete end-to-end source code, training and evaluation scripts, configuration files, and experimental logs for this project are publicly available under open access at the following repository:
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+    \item \textbf{Public Code Repository URL:} \url{https://github.com/MohithChandra07/Person-Segmentation}
+    \item \textbf{Access Level:} Public (Open Access, no authentication required)
+    \item \textbf{Primary Branch:} \texttt{main}
+    \item \textbf{Key Components Available:} Custom PyTorch U-Net architecture (\texttt{src/model.py}), compound BCE + Dice loss functions (\texttt{src/losses.py}), geometric data augmentation pipeline (\texttt{src/augmentations.py}), evaluation and metric tracking (\texttt{src/evaluate.py}, \texttt{src/metrics.py}), training loop with early stopping (\texttt{src/train.py}), and all experiment ablation logs (\texttt{experiments/}).
+\end{itemize}
+
+\subsection*{Presentation Poster Platform \& Design Artifacts}
+The academic presentation poster accompanying this report was prepared using the following design platforms and source formats:
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+    \item \textbf{Presentation Design Platform (Microsoft PowerPoint / Office 365):} The widescreen 16:9 presentation poster was created and styled using Microsoft PowerPoint (\url{https://www.microsoft.com/microsoft-365/powerpoint}). The fully editable \texttt{.pptx} source presentation file is hosted in the public GitHub repository: \\
+    \url{https://github.com/MohithChandra07/Person-Segmentation/blob/main/PennFudan_Pedestrian_Segmentation_Poster.pptx}
+    \item \textbf{LaTeX Beamer \& Overleaf Platform:} A vectorized poster layout was typeset in LaTeX Beamer on the Overleaf cloud platform (\url{https://www.overleaf.com}). The complete TeX source code is available in the repository at: \\
+    \url{https://github.com/MohithChandra07/Person-Segmentation/blob/main/report/poster.tex}
+    \item \textbf{High-Resolution Poster PDF:} The compiled 300~DPI presentation-ready poster PDF can be downloaded directly from: \\
+    \url{https://github.com/MohithChandra07/Person-Segmentation/blob/main/PennFudan_Pedestrian_Segmentation_Poster.pdf}
+\end{itemize}
 
 \end{document}
