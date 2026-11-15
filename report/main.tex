@@ -1,10 +1,12 @@
+\PassOptionsToPackage{hyphens}{url}
 \documentclass[10pt,a4paper]{report}
 
 % --- Essential Packages ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin=0.65in,top=0.65in,bottom=0.65in]{geometry}
-\usepackage{times}
+\usepackage{mathptmx}
+\usepackage{courier}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -120,7 +122,7 @@
         \begin{flushleft} \small
             \textbf{Submitted by:}\\
             \textbf{Mohith Chandra}\\
-            \textit{Roll No: CS-2022-XXXX}\\
+            \textit{Roll No: 2403cs04}\\
             Department of CSE
         \end{flushleft}
     \end{minipage}
@@ -207,7 +209,7 @@ The overarching objective of this project is to develop, train, optimize, and th
     \item Construct a leak-free, deterministic data pipeline that transforms raw variable-resolution images and multi-instance pedestrian masks into standardized $256 \times 256$ binary segmentation pairs.
     \item Formulate and implement a custom U-Net architecture from first principles using PyTorch, incorporating double-convolution blocks, batch normalization, channel-preserving transposed up-convolutions, and long-range skip connections.
     \item Implement a numerically stable hybrid loss function combining Binary Cross-Entropy with logits and smooth Dice Loss, along with a comprehensive suite of pixel-level and per-image evaluation metrics (IoU, F1-Score, Precision, Recall).
-    \item Establish a robust baseline model and systematically perform controlled ablation studies on synchronized geometric data augmentation, learning rate optimization ($\eta \in \{10^{-3}, 5\times 10^{-4}, 10^{-4}\}$), loss weighting coefficients ($\alpha / \beta \in \{1.0/1.0, 0.5/1.5, 1.5/0.5\}$), and architectural capacity scaling ($16$, $32$, and $48$ base feature channels).
+    \item Establish a robust baseline model and systematically perform controlled ablation studies on synchronized geometric data augmentation, learning rate optimization ($\eta \in \{10^{-3}, 5\times 10^{-4}, 10^{-4}\}$), loss weighting coefficients ($\alpha / \beta \in \{1.0/1.0,$ $0.5/1.5,$ $1.5/0.5\}$), and architectural capacity scaling ($16$, $32$, and $48$ base feature channels).
     \item Perform a single, rigorous evaluation of the final selected model on a pristine, held-out test split of $27$ urban images, conducting both global pixel-level evaluations and granular per-image error breakdowns.
 \end{enumerate}
 
@@ -421,9 +423,16 @@ Output & OutConv ($1\times 1$) & $[B, 32, 256, 256]$ & $[B, 1, 256, 256]$ & 33 \
 \section{Hybrid Loss Function Formulation}
 We formulate a composite objective combining Binary Cross-Entropy with logits and smooth soft Dice Loss:
 \begin{equation}
-\mathcal{L}_{\text{total}}(\hat{\mathbf{z}}, \mathbf{y}) = \alpha \cdot \mathcal{L}_{\text{BCE}}(\hat{\mathbf{z}}, \mathbf{y}) + \beta \cdot \mathcal{L}_{\text{Dice}}(\hat{\mathbf{z}}, \mathbf{y}),
+\mathcal{L}_{\text{total}}(\hat{\mathbf{z}}, \mathbf{y}) = \alpha \cdot \mathcal{L}_{\text{BCE}}(\hat{\mathbf{z}}, \mathbf{y}) + \beta \cdot \mathcal{L}_{\text{Dice}}(\hat{\mathbf{z}}, \mathbf{y})
 \end{equation}
-where $\mathcal{L}_{\text{BCE}}(\hat{\mathbf{z}}, \mathbf{y}) = \frac{1}{N} \sum_{i=1}^{N} [ \max(\hat{z}_i, 0) - \hat{z}_i y_i + \log(1 + e^{-|\hat{z}_i|}) ]$ stabilizes pixel-wise gradient flow, and $\mathcal{L}_{\text{Dice}}(\hat{\mathbf{z}}, \mathbf{y}) = 1 - \frac{2 \sum_{i=1}^N p_i y_i + 1.0}{\sum_{i=1}^N p_i + \sum_{i=1}^N y_i + 1.0}$ directly maximizes area overlap.
+where $\mathcal{L}_{\text{BCE}}$ stabilizes pixel-wise gradient flow via log-sum-exp formulation:
+\begin{equation}
+\mathcal{L}_{\text{BCE}}(\hat{\mathbf{z}}, \mathbf{y}) = \frac{1}{N} \sum_{i=1}^{N} \left[ \max(\hat{z}_i, 0) - \hat{z}_i y_i + \log\left(1 + e^{-|\hat{z}_i|}\right) \right]
+\end{equation}
+and smooth Dice loss directly maximizes area overlap ($p_i = \sigma(\hat{z}_i)$):
+\begin{equation}
+\mathcal{L}_{\text{Dice}}(\hat{\mathbf{z}}, \mathbf{y}) = 1 - \frac{2 \sum_{i=1}^N p_i y_i + 1.0}{\sum_{i=1}^N p_i + \sum_{i=1}^N y_i + 1.0}
+\end{equation}
 
 \section{Optimization Algorithm and Experimental Setup}
 Algorithm~\ref{alg:training_pipeline} outlines the complete training, validation, and early stopping pipeline.
