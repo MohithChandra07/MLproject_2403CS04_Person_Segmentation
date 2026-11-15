@@ -1,0 +1,10 @@
+stage,split_evaluated,augmentation,base_channels,lr,loss_weights_bce_dice,best_epoch,iou,f1,precision,recall,loss,duration_min
+Phase 5: Baseline (No Aug),Validation (25 imgs),none,32,0.001,1.0 / 1.0,32,0.7447,0.8536,0.8452,0.8622,0.2979,5.7
+Phase 6: Augmented,Validation (25 imgs),flip_zoom,32,0.001,1.0 / 1.0,73,0.7635,0.8659,0.8633,0.8685,0.2712,10.92
+Phase 7: LR Opt (Best LR),Validation (25 imgs),flip_zoom,32,0.0005,1.0 / 1.0,75,0.7669,0.8681,0.8642,0.872,0.312,11.33
+Phase 7: LR Opt (Low LR),Validation (25 imgs),flip_zoom,32,0.0001,1.0 / 1.0,27,0.7186,0.8363,0.8202,0.8529,0.7506,5.84
+Phase 8: Loss Opt (0.5/1.5),Validation (25 imgs),flip_zoom,32,0.0005,0.5 / 1.5,29,0.7685,0.8691,0.8683,0.87,0.327,5.36
+Phase 8: Loss Opt (1.5/0.5) [SELECTED],Validation (25 imgs),flip_zoom,32,0.0005,1.5 / 0.5,57,0.7739,0.8725,0.8664,0.8787,0.2928,9.58
+Phase 9: Capacity (16 ch),Validation (25 imgs),flip_zoom,16,0.0005,1.5 / 0.5,33,0.7414,0.8515,0.8374,0.866,0.4226,2.16
+Phase 9: Capacity (48 ch),Validation (25 imgs),flip_zoom,48,0.0005,1.5 / 0.5,56,0.7627,0.8653,0.8691,0.8616,0.2687,20.1
+Phase 10: Final Selected Model (TEST SET),Test (27 imgs),flip_zoom (train only),32,0.0005,1.5 / 0.5,57,0.7483,0.856,0.8214,0.8936,0.3304,-

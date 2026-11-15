@@ -1,0 +1,30 @@
+seed: 42
+image_size: 256
+data:
+  root: data/PennFudanPed
+  splits_file: configs/splits.json
+  train_ratio: 0.7
+  val_ratio: 0.15
+loader:
+  batch_size: 8
+  num_workers: 0
+model:
+  in_channels: 3
+  out_channels: 1
+  base_channels: 32
+loss:
+  bce_weight: 1.5
+  dice_weight: 0.5
+  smooth: 1.0
+metrics:
+  threshold: 0.5
+train:
+  epochs: 100
+  lr: 0.0005
+  weight_decay: 0.0
+  early_stop_patience: 20
+  scheduler_factor: 0.5
+  scheduler_patience: 5
+  threshold: 0.5
+experiment_name: loss_15_05
+augmentation: flip_zoom

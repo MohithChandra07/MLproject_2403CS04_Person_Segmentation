@@ -1,0 +1,5 @@
+experiment,base_channels,parameters,parameters_m,best_epoch,total_epochs,val_iou,val_f1,val_precision,val_recall,val_loss,training_duration_sec,training_duration_min,checkpoint_path,log_path
+Experiment A (architecture_16),16,1942577,1.94M,33,53,0.7414,0.8515,0.8374,0.8660,0.4226,130.1,2.17,checkpoints/architecture_16_best.pt,experiments/architecture_16/log.csv
+Reference (loss_15_05),32,7763041,7.76M,57,77,0.7739,0.8725,0.8664,0.8787,0.2928,576.8,9.61,checkpoints/loss_15_05_best.pt,experiments/loss_15_05/log.csv
+Experiment B (architecture_48),48,17461393,17.46M,56,76,0.7627,0.8653,0.8691,0.8616,0.2687,1210.6,20.18,checkpoints/architecture_48_best.pt,experiments/architecture_48/log.csv
+

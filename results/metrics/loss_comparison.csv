@@ -1,0 +1,5 @@
+experiment,bce_weight,dice_weight,learning_rate,augmentation,best_epoch,total_epochs,val_iou,val_f1,val_precision,val_recall,val_loss,training_duration_sec,training_duration_min,checkpoint_path,log_path
+Reference (lr_0005),1.0,1.0,0.0005,flip_zoom,75,95,0.7669,0.8681,0.8642,0.8720,0.3120,683.2,11.39,checkpoints/lr_0005_best.pt,experiments/lr_0005/log.csv
+Experiment A (loss_05_15),0.5,1.5,0.0005,flip_zoom,29,49,0.7685,0.8691,0.8683,0.8700,0.3270,323.7,5.39,checkpoints/loss_05_15_best.pt,experiments/loss_05_15/log.csv
+Experiment B (loss_15_05),1.5,0.5,0.0005,flip_zoom,57,77,0.7739,0.8725,0.8664,0.8787,0.2928,576.8,9.61,checkpoints/loss_15_05_best.pt,experiments/loss_15_05/log.csv
+
