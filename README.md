@@ -63,7 +63,10 @@ Test Dice Loss:            0.1558
 | **College Project Report** | Comprehensive 13-page academic report adhering strictly to curriculum guidelines | [`PennFudan_Pedestrian_Segmentation_Report.pdf`](PennFudan_Pedestrian_Segmentation_Report.pdf) |
 | **Presentation Poster (PDF)** | 16:9 high-resolution academic presentation poster | [`PennFudan_Pedestrian_Segmentation_Poster.pdf`](PennFudan_Pedestrian_Segmentation_Poster.pdf) |
 | **Presentation Poster (PPTX)** | Fully editable 16:9 widescreen PowerPoint presentation | [`PennFudan_Pedestrian_Segmentation_Poster.pptx`](PennFudan_Pedestrian_Segmentation_Poster.pptx) |
+| **Draw.io Architecture Diagram** | Raw multi-page editable vector file for Draw.io / Diagrams.net | [`architecture.drawio`](architecture.drawio) |
+| **Referred Research Papers** | Curated collection of 14 published reference papers (PDFs) | [`referred_papers/`](referred_papers/) |
 | **Overleaf LaTeX Package** | Ready-to-compile Overleaf bundle (compiles in <2 seconds) | [`report_overleaf.zip`](report_overleaf.zip) / [`report/`](report/) |
+| **Complete Submission Folder** | Institutional submission package formatted to guideline naming | [`MLproject_2403CS04_Person_Segmentation/`](MLproject_2403CS04_Person_Segmentation/) |
 
 ---
 
@@ -71,6 +74,12 @@ Test Dice Loss:            0.1558
 
 ```
 .
+├── MLproject_2403CS04_Person_Segmentation/  # Submission package (MLproject_rollno_topic)
+│   ├── Code/                      # Source code, configs, logs, requirements
+│   ├── Draw.io/                   # Raw Draw.io editable vector diagrams
+│   ├── Poster/                    # Presentation poster (PDF and PPTX)
+│   ├── Referred_Papers/           # 14 primary referenced research papers (PDFs)
+│   └── Report/                    # Final college report PDF and Overleaf bundle
 ├── configs/                       # Configuration files
 │   ├── config.yaml                # Master hyperparameter configuration
 │   └── splits.json                # Fixed train (118), val (25), test (27) splits
@@ -79,6 +88,7 @@ Test Dice Loss:            0.1558
 │   ├── lr_0005/ & lr_0001/        # Learning rate exploration logs
 │   ├── loss_05_15/ & loss_15_05/  # Loss weight exploration logs
 │   └── architecture_16/ & 48/     # Architecture capacity ablation logs
+├── referred_papers/               # All 14 original research papers referenced
 ├── report/                        # LaTeX report source files
 │   ├── main.tex                   # Standalone master college report LaTeX
 │   ├── poster.tex                 # Beamer poster LaTeX source
@@ -99,6 +109,7 @@ Test Dice Loss:            0.1558
 │   ├── preprocessing.py           # Image normalization and mask binarization
 │   ├── train.py                   # Training loop with validation & early stopping
 │   └── utils.py                   # Checkpointing, reproducibility, and logging
+├── architecture.drawio            # Raw editable Draw.io multi-diagram file
 ├── PennFudan_Pedestrian_Segmentation_Report.pdf  # Final 13-page college project report
 ├── PennFudan_Pedestrian_Segmentation_Poster.pdf  # Final 16:9 poster (PDF)
 ├── PennFudan_Pedestrian_Segmentation_Poster.pptx # Editable 16:9 poster (PPTX)

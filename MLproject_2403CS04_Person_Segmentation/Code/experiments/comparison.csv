@@ -1,0 +1,15 @@
+metric,baseline,augmented,difference,relative_change
+model_name,Baseline U-Net,Augmented U-Net,-,-
+augmentation,none,flip_zoom (H-Flip p=0.5 + Zoom 0.9-1.1),-,-
+best_epoch,32,73,+41,-
+total_epochs_trained,52,93,+41,-
+best_val_iou,0.7447,0.7635,+0.0188,+2.53%
+val_f1,0.8536,0.8659,+0.0123,+1.44%
+val_precision,0.8452,0.8633,+0.0181,+2.14%
+val_recall,0.8622,0.8685,+0.0063,+0.73%
+val_loss,0.2979,0.2712,-0.0267,-8.95%
+training_duration_sec,344.0,657.6,+313.6,+91.16%
+training_duration_min,5.73,10.96,+5.23,+91.27%
+checkpoint_path,checkpoints/baseline_best.pt,checkpoints/augmented_best.pt,-,-
+log_path,experiments/baseline/log.csv,experiments/augmented/log.csv,-,-
+
