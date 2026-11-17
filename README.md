@@ -63,6 +63,7 @@ Test Dice Loss:            0.1558
 | **College Project Report** | Comprehensive 13-page academic report adhering strictly to curriculum guidelines | [`PennFudan_Pedestrian_Segmentation_Report.pdf`](PennFudan_Pedestrian_Segmentation_Report.pdf) |
 | **Presentation Poster (PDF)** | 16:9 high-resolution academic presentation poster | [`PennFudan_Pedestrian_Segmentation_Poster.pdf`](PennFudan_Pedestrian_Segmentation_Poster.pdf) |
 | **Presentation Poster (PPTX)** | Fully editable 16:9 widescreen PowerPoint presentation | [`PennFudan_Pedestrian_Segmentation_Poster.pptx`](PennFudan_Pedestrian_Segmentation_Poster.pptx) |
+| **Presentation Poster (Canva)** | Interactive online design workspace on Canva | [Canva Design Link](https://www.canva.com/design/DAHbKYEydMI/gIWss2omihcDXmBd4BL0QA/edit) |
 | **Draw.io Architecture Diagram** | Raw multi-page editable vector file for Draw.io / Diagrams.net | [`architecture.drawio`](architecture.drawio) |
 | **Referred Research Papers** | Curated collection of 14 published reference papers (PDFs) | [`referred_papers/`](referred_papers/) |
 | **Overleaf LaTeX Package** | Ready-to-compile Overleaf bundle (compiles in <2 seconds) | [`report_overleaf.zip`](report_overleaf.zip) / [`report/`](report/) |
